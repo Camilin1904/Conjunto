@@ -35,4 +35,32 @@ public class Conjunto <T> {
     public boolean eliminar(T elemento){
         return elements.remove(elemento);
     }
+
+    public String toString(){
+
+        String out="{";
+
+        for(int i=0; i<elements.size();i++){
+
+            out+=elements.get(i);
+
+            if(i<elements.size()-1&&elements.get(i+1)!=null){
+
+                out+=" , ";
+
+            }
+
+        }
+
+        out+="}";
+
+        return out;
+
+    }
+
+    public ArrayList<T> getArrayList(){
+
+        return elements;
+
+    }
 }
