@@ -34,6 +34,9 @@ public class ConjuntoManager{
 		int option;
 
 		do{System.out.println(
+                "\n\n----------------------\n"+
+                "|    Menu Inicial    |\n"+
+                "----------------------\n\n"+
 				"Seleccione una opcion\n" +
 				"(1) Agregar Elemento\n" +
 				"(2) Union\n" +
@@ -41,7 +44,7 @@ public class ConjuntoManager{
 				"(4) Buscar\n" +
                 "(5) Eliminar\n" +
 				"(6) Mostrar Conjuntos\n" +
-                "(0) Para Salir"
+                "(0) Para Salir\n\n"
 				);
 		    option= sc.nextInt();
 		    sc.nextLine();
@@ -58,19 +61,20 @@ public class ConjuntoManager{
 
     public <T>void chooseTwoArray(int option) {
 
-        System.out.println(toPrint());
-
 		int selectedArray;
 
 		do{System.out.println(
+                "\n\n----------------------\n"+
+                "|    Menu Arreglos   |\n"+
+                "----------------------\n\n"+
 				"Seleccione un arreglo\n" +
-				"(1)\n" +
-				"(2)\n" +
-                "(3)\n" +
-				"(4)\n" +
-                "(5)\n" +
-				"(6)\n" +
-                "(0) Para regresar al menu principal"
+				"(1) "+ints.toString()+"\n\n" +
+				"(2) "+ints2.toString()+"\n\n" +
+                "(3) "+str.toString()+"\n\n" +
+				"(4) "+str2.toString()+"\n\n" +
+                "(5) "+chr.toString()+"\n\n" +
+				"(6) "+chr2.toString()+"\n\n" +
+                "(0) Para regresar al menu principal\n\n"
 				);
                 selectedArray= sc.nextInt();
 		    sc.nextLine();
@@ -84,9 +88,9 @@ public class ConjuntoManager{
             if(selectedArray==1||selectedArray==2){
 
                 do{System.out.println(
-                    "Seleccione un segundo arreglo del mismo tipo:\n" +
-                    "(1) \n" +
-                    "(2) \n"
+                    "\n\nSeleccione un segundo arreglo del mismo tipo:\n" +
+                    "(1) "+ints.toString()+"\n\n" +
+                    "(2) "+ints2.toString()+"\n\n"
                     );
                     second = sc.nextInt();
                     sc.nextLine();
@@ -98,9 +102,9 @@ public class ConjuntoManager{
             if(selectedArray==3||selectedArray==4){
 
                 do{System.out.println(
-                    "Seleccione un segundo arreglo del mismo tipo:\n" +
-                    "(3) \n" +
-                    "(4) \n"
+                    "\n\nSeleccione un segundo arreglo del mismo tipo:\n" +
+                    "(3) "+str.toString()+"\n\n" +
+                    "(4) "+str2.toString()+"\n\n"
                     );
                     second = sc.nextInt();
                     sc.nextLine();
@@ -112,9 +116,9 @@ public class ConjuntoManager{
             if(selectedArray==5||selectedArray==6){
 
                 do{System.out.println(
-                    "Seleccione un segundo arreglo del mismo tipo:\n" +
-                    "(5) \n" +
-                    "(6) \n"
+                    "\n\nSeleccione un segundo arreglo del mismo tipo:\n" +
+                    "(5) "+chr.toString()+"\n\n" +
+                    "(6) "+chr2.toString()+"\n\n"
                     );
                     second = sc.nextInt();
                     sc.nextLine();
@@ -210,26 +214,25 @@ public class ConjuntoManager{
         switch(option) {
 		case 1:
             agregar(toChange);
-            toChange.toString();
+            System.out.println("\n\nResultado:\n\n"+toChange.toString());
 			break;
 		case 2:
             union(toChange, toUse);
-            toChange.toString();
+            System.out.println("\n\nResultado:\n\n"+toChange.toString());
 			break;
         case 3:
             interseccion(toChange, toUse);
-            toChange.toString();
+            System.out.println("\n\nResultado:\n\n"+toChange.toString());
             break;
         case 4:
             buscar(toChange);
-            toChange.toString();
             break;
         case 5:
             eliminar(toChange);
-            toChange.toString();
+            System.out.println("\n\nResultado:\n\n"+toChange.toString());
             break;
         case 6:
-            toPrint();
+            System.out.println(toPrint());
             break;
 		default:
 			System.out.println("Error, opción no válida");
@@ -242,7 +245,7 @@ public class ConjuntoManager{
         boolean n = true;
         T holder = null;
         while(n){
-            System.out.println("ingrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName());
+            System.out.println("\nIngrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName() + "\n");
             if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Integer")){
                 try{
                     holder = (T)new Integer(sc.nextInt());
@@ -295,7 +298,7 @@ public class ConjuntoManager{
         boolean n = true;
         T holder = null;
         while(n){
-            System.out.println("ingrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName());
+            System.out.println("\nIngrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName() + "\n");
             if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Integer")){
                 try{
                     holder = (T)new Integer(sc.nextInt());
@@ -336,7 +339,7 @@ public class ConjuntoManager{
         boolean n = true;
         T holder = null;
         while(n){
-            System.out.println("ingrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName());
+            System.out.println("\nIngrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName() + "\n");
             if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Integer")){
                 try{
                     holder = (T)new Integer(sc.nextInt());
@@ -375,9 +378,9 @@ public class ConjuntoManager{
 
     public String toPrint(){
 
-        String out="\n\nArreglo 1\n\n"+ints.toString()+"\n\nArreglo 2\n\n"+ints2.toString()
-        +"\n\nArreglo 3\n\n"+str.toString()+"\n\nArreglo 4\n\n"+str2.toString()+"\n\nArreglo 5\n\n"+chr.toString()+
-        "\n\nArreglo 6\n\n"+chr2.toString();
+        String out="\n\nArreglo 1 "+ints.toString()+"\n\nArreglo 2 "+ints2.toString()
+        +"\n\nArreglo 3 "+str.toString()+"\n\nArreglo 4 "+str2.toString()+"\n\nArreglo 5 "+chr.toString()+
+        "\n\nArreglo 6 "+chr2.toString();
         
     
         return out;

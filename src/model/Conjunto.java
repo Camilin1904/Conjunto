@@ -13,6 +13,9 @@ public class Conjunto <T> {
 
 
     public boolean agregarElemento(T elemento){
+
+        if(elements.contains(' ')||elements.contains("")) elements.set(0, elemento);
+
         if (!elements.contains(elemento)) elements.add(elemento);
         else return false;
         return true;
@@ -38,7 +41,7 @@ public class Conjunto <T> {
 
     public String toString(){
 
-        String out="{";
+        String out=" Tipo "+ elements.get(0).getClass().getSimpleName() +"\n        {";
 
         for(int i=0; i<elements.size();i++){
 
