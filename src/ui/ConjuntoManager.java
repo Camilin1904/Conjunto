@@ -1,13 +1,11 @@
 package ui;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import javax.management.ObjectName;
+import model.*;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import model.Conjunto;
-
+@SuppressWarnings({"unchecked", "removal"})
 public class ConjuntoManager{
 
     private Scanner sc = new Scanner(System.in);
@@ -241,29 +239,138 @@ public class ConjuntoManager{
 	}
 
     public <T> void agregar(Conjunto<T> toChange){
-
-
-
+        boolean n = true;
+        T holder = null;
+        while(n){
+            System.out.println("ingrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName());
+            if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Integer")){
+                try{
+                    holder = (T)new Integer(sc.nextInt());
+                    n = false;
+                }
+                catch (InputMismatchException e){
+                    sc.nextLine();
+                    System.out.println("Invalid type");
+                }
+            }
+            else if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Character")){
+                try{
+                    holder = (T)new Character(sc.next().charAt(0));
+                    n = false;
+                }
+                catch (InputMismatchException o){
+                    sc.nextLine();
+                    System.out.println("Invalid type");
+                }
+            }
+            else if(toChange.getArrayList().get(0).getClass().equals(String.class)){
+                try{
+                    holder = (T)sc.nextLine();
+                    n = false;
+                }
+                catch (InputMismatchException i){
+                    System.out.println("Invalid data input");
+                
+                }
+            }
+        }
+        toChange.agregarElemento(holder);
     }
+
+
 
     public <T>void union(Conjunto<T> toChange, Conjunto<T> toUse){
 
-        toChange.union(toUse.getArrayList());
+        toChange.union(toUse);
 
     }
 
     public <T>void interseccion(Conjunto<T> toChange, Conjunto<T> toUse){
 
-        toChange.interseccion(toUse.getArrayList());
+        toChange.interseccion(toUse);
 
     }
 
     public <T>void buscar(Conjunto<T> toChange){
+        boolean n = true;
+        T holder = null;
+        while(n){
+            System.out.println("ingrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName());
+            if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Integer")){
+                try{
+                    holder = (T)new Integer(sc.nextInt());
+                    n = false;
+                }
+                catch (InputMismatchException e){
+                    sc.nextLine();
+                    System.out.println("Invalid type");
+                }
+            }
+            else if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Character")){
+                try{
+                    holder = (T)new Character(sc.next().charAt(0));
+                    n = false;
+                }
+                catch (InputMismatchException o){
+                    sc.nextLine();
+                    System.out.println("Invalid type");
+                }
+            }
+            else if(toChange.getArrayList().get(0).getClass().equals(String.class)){
+                try{
+                    holder = (T)sc.nextLine();
+                    n = false;
+                }
+                catch (InputMismatchException i){
+                    System.out.println("Invalid data input");
+                
+                }
+            }
+        }
 
+        if(toChange.buscar(holder)) System.out.println("el elemento se encuentra presente");
+        else System.out.println("el elemento no se encuentra");
     }
 
     public <T>void eliminar(Conjunto<T> toChange){
+        boolean n = true;
+        T holder = null;
+        while(n){
+            System.out.println("ingrese el valor" + " "+ toChange.getArrayList().get(0).getClass().getSimpleName());
+            if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Integer")){
+                try{
+                    holder = (T)new Integer(sc.nextInt());
+                    n = false;
+                }
+                catch (InputMismatchException e){
+                    sc.nextLine();
+                    System.out.println("Invalid type");
+                }
+            }
+            else if(toChange.getArrayList().get(0).getClass().getSimpleName().equals("Character")){
+                try{
+                    holder = (T)new Character(sc.next().charAt(0));
+                    n = false;
+                }
+                catch (InputMismatchException o){
+                    sc.nextLine();
+                    System.out.println("Invalid type");
+                }
+            }
+            else if(toChange.getArrayList().get(0).getClass().equals(String.class)){
+                try{
+                    holder = (T)sc.nextLine();
+                    n = false;
+                }
+                catch (InputMismatchException i){
+                    System.out.println("Invalid data input");
+                
+                }
+            }
+        }
 
+        if(toChange.eliminar(holder)) System.out.println("el elemento se ha eliminado");
+        else System.out.println("el elemento no se encuentra");
     }
 
     public String toPrint(){
@@ -279,6 +386,8 @@ public class ConjuntoManager{
 
     public void init(){
 
+        ints.agregarElemento(0);
+
         ints2.agregarElemento(1);
         ints2.agregarElemento(2);
         ints2.agregarElemento(3);
@@ -289,6 +398,7 @@ public class ConjuntoManager{
         ints2.agregarElemento(8);
         ints2.agregarElemento(9);
 
+        str.agregarElemento("");
         str2.agregarElemento("Recursividad");
         str2.agregarElemento("Hola");
         str2.agregarElemento("Discretas");
@@ -300,6 +410,8 @@ public class ConjuntoManager{
         str2.agregarElemento("Iteracion");
 
         String discretas = "DISCRETA";
+
+        chr.agregarElemento(' ');
 
         chr2.agregarElemento(discretas.charAt(0));
         chr2.agregarElemento(discretas.charAt(1));

@@ -18,14 +18,14 @@ public class Conjunto <T> {
         return true;
     }
 
-    public void union(ArrayList<T> otros){
-        for (int i=0; i<otros.size(); i++){
-            agregarElemento(otros.get(i));
+    public void union(Conjunto<T> otros){
+        for (int i=0; i<otros.getArrayList().size(); i++){
+            agregarElemento(otros.getArrayList().get(i));
         }
     }
 
-    public void interseccion(ArrayList<T> otros){
-        elements.retainAll(otros);
+    public void interseccion(Conjunto<T> otros){
+        elements.retainAll(otros.getArrayList());
     }
 
     public boolean buscar(T elemento){
@@ -58,9 +58,19 @@ public class Conjunto <T> {
 
     }
 
+
+
     public ArrayList<T> getArrayList(){
 
         return elements;
 
+    }
+
+    public T getElement(int index){
+        return elements.get(index);
+    }
+
+    public int size(){
+        return elements.size();
     }
 }
